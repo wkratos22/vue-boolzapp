@@ -1,0 +1,111 @@
+.bg{
+    height: 100vh;
+}
+
+.propic{
+    width: 70px;
+}
+
+.p-margin{
+    margin-bottom: 0;
+}
+
+.text-color{
+    color: grey;
+    text-decoration: underline;
+}
+
+.input-group-text{
+    background-color: white !important;
+    width: 60px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 0 !important;
+    color: grey;
+}
+
+.form-control{
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 0 !important;
+}
+
+.fa-magnifying-glass{
+    margin-left: 33%;
+}
+
+.small-icon{
+    color: grey;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.ora-chat{
+    font-size: 13px;
+    color: grey;
+}
+
+.underline{
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.header-width{
+    width: 100%;
+}
+
+.bg-chat{
+    background-image: url(./img/mine.jpg);
+    height: 100%;
+}
+
+.chat-text{
+    border-radius: 8px !important;
+}
+
+.sent{
+    background-color: rgb(173, 253, 177);
+    width: 320px;
+}
+
+.recived{
+    width: 200px;
+}
+
+.ora-messaggio{
+    font-size: 10px;
+    color: grey;
+    justify-content: flex-end;
+}
+
+/* footer */
+.footer{
+    background-color: rgb(255, 246, 235);
+}
+
+.fa-face-smile{
+    font-size: 20px;
+    margin-left: 15%;
+}
+
+.input-group-text{
+    background-color:rgb(255, 246, 235) !important ;
+    border: 0 !important;
+    height: 40px;
+}
+
+.form-control{
+    border-radius: 5px !important;
+}
+
+.fa-microphone{
+    font-size: 20px;
+    margin-left: 30%;
+}
+
+.sfondo{
+    height: 100vh;
+    background-image: 
+    linear-gradient(to bottom, 
+    #009688 0px,
+    #009688 15vh,
+    #dddbd1 15vh,
+    #dddbd1 100vh);
+}
