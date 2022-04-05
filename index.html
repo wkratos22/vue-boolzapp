@@ -38,108 +38,36 @@
                             </div>
                             <div class="px-3 mt-2">
                                 <p class="p-margin">Ricevi notifiche di nuovi messaggi</p>
-                                <p class="text-color">Ottieni notifiche desktop</p>
+                                <p role="button" class="text-color">Ottieni notifiche desktop</p>
                             </div>
                         </div>
                         <!-- barra di ricerca -->
                         <div class="input-group input-group-sm mb-3 ">
                             <span class="input-group-text" id="inputGroup-sizing-sm">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i role="button" class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat">
+                            <input 
+                                v-model="search" 
+                                type="text" 
+                                class="form-control" 
+                                aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" 
+                                placeholder="Cerca o inizia una nuova chat"
+                                >
                         </div>
                         <!-- contenitore chats -->
-                        <!-- chat 1 -->
+                        <!-- chat -->
                         <div class="underline">
                             <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_1.jpg" alt="1immagine">
+                                <li class="d-flex align-items-center list-group-item"
+                                    v-for="element in contacts"
+                                    role="button"
+                                    >
+                                    <div class="d-flex align-items-center" v-for="post in filteredList"></div>
+                                    <img class="rounded-circle propic me-3" :src="`./img/avatar${element.avatar}.jpg`" alt="1immagine">
                                     <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                    <div>
-                                        <span class="ora-chat">12:00</span>
-                                    </div>
-
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- chat 2 -->
-                        <div class="underline">
-                            <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_2.jpg" alt="1immagine">
-                                    <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                    <div>
-                                        <span class="ora-chat">12:00</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- chat 3 -->
-                        <div class="underline">
-                            <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_3.jpg" alt="1immagine">
-                                    <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                    <div>
-                                        <span class="ora-chat">12:00</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- chat 4 -->
-                        <div class="underline">
-                            <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_4.jpg" alt="1immagine">
-                                    <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                    <div>
-                                        <span class="ora-chat">12:00</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- chat 5 -->
-                        <div>
-                            <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_5.jpg" alt="1immagine">
-                                    <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                    <div>
-                                        <span class="ora-chat">12:00</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- chat 6 -->
-                        <div>
-                            <ul class="list-group-flush p-0">
-                                <li class="d-flex align-items-center list-group-item">
-                                    <div class="d-flex align-items-center"></div>
-                                    <img class="rounded-circle propic me-3" src="./img/avatar_6.jpg" alt="1immagine">
-                                    <div>
-                                        <span>Nome e Cognome</span>
-                                        <span>Ultimo messaggio inviato</span>
+                                        <span>{{ element.name }}</span>
+                                        <span class="d-flex ultimo-mess">Ultimo messaggio inviato</span>
                                     </div>
                                     <div>
                                         <span class="ora-chat">12:00</span>
@@ -152,7 +80,7 @@
                     <div class="col-8 bg-white">
                         <div class="d-flex justify-content-between align-items-center header-width">
                             <img class="rounded-circle propic p-1" src="./img/avatar_1.jpg" alt="1immagine">
-                            <span>Nome e Cognome</span>
+                            <span>nome e cognome</span>
                             <div>
                                 <i class="fa-solid fa-circle-notch small-icon"></i>
                                 <i class="fa-solid fa-message small-icon"></i>
@@ -162,30 +90,31 @@
                         <!-- interno chat -->
                         <div class="bg-chat p-3">
                             <ul class="d-flex flex-column list-group">
-                                <li class="list-group-item align-self-end mt-5 me-3 chat-text sent">
-                                    hai portato a spasso il cane?
+                                <li class="list-group-item mt-3 me-3 chat-text sent"
+                                    v-for="(element, index) in contacts[nuovoIndex].messages"
+                                    :class="(element.status == `sent`) ?  `align-self-end sent` : `align-self-start recived bg-white`"
+                                    >
+                                    {{ element.message }}
                                     <span class="ora-messaggio d-flex">15:30</span>
-                                </li>
-                                <li class="list-group-item align-self-end mt-2 me-3 chat-text sent">
-                                    Ricordati di stendere i panni
-                                    <span class="ora-messaggio d-flex">15:50</span>
-                                </li>
-                                <li class="list-group-item rounded-4 align-self-start ms-3 mt-2 chat-text recived">
-                                    Tutto fatto!
-                                    <span class="ora-messaggio d-flex">16:15</span>
                                 </li>
                             </ul>
                         </div>
                         <!-- footer interno chat -->
                         <div class="footer">
                             <div class="input-group input-group-sm mb-3 p-2">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">
-                                    <i class="fa-solid fa-face-smile"></i>
+                                <span class="input-group-text icon-bg" id="inputGroup-sizing-sm">
+                                    <i role="button" class="fa-solid fa-face-smile"></i>
                                 </span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-sm" placeholder="Scrivi un messaggio">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">
-                                    <i class="fa-solid fa-microphone"></i>
+                                <input  
+                                    v-model="nuovoMessaggio"
+                                    @keyup.enter="addTodo" 
+                                    type="text" class="form-control" 
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm" 
+                                    placeholder="Scrivi un messaggio"
+                                >
+                                <span class="input-group-text icon-bg" id="inputGroup-sizing-sm">
+                                    <i role="button" class="fa-solid fa-microphone"></i>
                                 </span>
                             </div>
                         </div>
