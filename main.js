@@ -176,27 +176,44 @@ var app = new Vue(
             nuovoIndex: 0,
             nuovoMessaggio: ``,
             search: "",
+            
         },
         methods: {
-            addTodo: function(){
-              //Creazione dell'oggetto che verrà pushato
-              let newMex = {
-                text: this.nuovoMessaggio,
-              }
-              if( !this.nuovoMessaggio == '' ){
-                this.contacts.push(newMex);
-
-                this.nuovoMessaggio = ''
-              }
-            },
-
-            computed: {
-                filteredList() {
-                  return this.contacts.filter(post => {
-                    return post.name.toLowerCase().includes(this.search.toLowerCase())
-                  })
+            // invio messaggio
+            
+            addMessage: function(){
+                let messageSent = {
+                message: this.nuovoMessaggio,
+                status: `sent`
                 }
-              }
+                this.nuovoMessaggio = ''
+                this.contacts[this.nuovoIndex].messages.push(messageSent);
+
+                let messageRecived = {
+                   message: `ok`,
+                   status: `received`
+                }
+
+                setTimeout(
+                () => {
+                    this.contacts[this.nuovoIndex].messages.push(messageRecived);
+                }, 
+                3000);
+            },
+            // cambio della chat
+
+            cambioChat: function(index){
+                this.nuovoIndex = index;
+            },
+            // ricerca della chat
+
+            // computed: {
+            //     filteredList() {
+            //       return this.contacts.filter(element => {
+            //          return element.name.indexOf(this.search.toLowerCase()) > -1
+            //       })
+            //     }
+            // }
         }
     }
 );

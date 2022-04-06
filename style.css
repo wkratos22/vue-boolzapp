@@ -58,7 +58,7 @@
 
 .bg-chat{
     background-image: url(./img/mine.jpg);
-    height: 86%;
+    height: 790px;
 }
 
 .chat-text{
@@ -124,4 +124,9 @@
 
 .icon-bg{
     background-color: rgb(255, 246, 235) !important;
+}
+
+
+.bg-size{
+    height: 916.3px;
 }
